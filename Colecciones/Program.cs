@@ -10,39 +10,46 @@ namespace Colecciones
     {
         static void Main(string[] args)
         {
-            Alumno alumno = new Alumno();
-            alumno.Nombre = "Juan Perez";
-            alumno.Matricula = "195636";
+            //Declaración e inicialización de lista de alumnos
+            List<Alumno> Alumnos = new List<Alumno>();
+
+            //Declaración y asignación de valores de alumno1
+            Alumno alumno1 = new Alumno();
+            alumno1.Nombre = "Juan Pablo";
+            alumno1.Materias.Add(new Materia("Historia", "HT965474"));
+            alumno1.Materias.Add(new Materia("Matematicas", "MAT946381"));
+            alumno1.Materias.Add(new Materia("Programacion", "PRG976548"));
+            Alumnos.Add(alumno1);
+
+            Alumno alumno2 = new Alumno();
+            alumno2.Nombre = "Carlos Sánchez";
+            alumno2.Materias.Add(new Materia("Civismo", "CV646572"));
+            alumno2.Materias.Add(new Materia("Ciencias Naturales", "CNT546681"));
+            alumno2.Materias.Add(new Materia("Geografia", "GEO635468"));
+            Alumnos.Add(alumno2);
+
+            Alumno alumno3 = new Alumno();
+            alumno3.Nombre = "Pedro Ramírez";
+            alumno3.Materias.Add(new Materia("Biologia", "BLG654874"));
+            alumno3.Materias.Add(new Materia("Etica", "ETC641381"));
+            alumno3.Materias.Add(new Materia("Tutorias", "TUT676548"));
+            Alumnos.Add(alumno3);
+
+            Alumno alumno4 = new Alumno();
+            alumno4.Nombre = "Raúl Campos";
+            alumno4.Materias.Add(new Materia("Español", "ESP343728"));
+            alumno4.Materias.Add(new Materia("Ingles", "ING346182"));
+            alumno4.Materias.Add(new Materia("Educacion Fisica", "EDF375468"));
+            Alumnos.Add(alumno4);
             
-
-            Materia matematicas = new Materia();
-            matematicas.Nombre = "Matematicas";
-            matematicas.Identificador = "MT12358";
-
-            alumno.Materias.Add(new Materia());
-            alumno.Materias.Add(matematicas);
-
-            alumno.Materias[0].Nombre = "Historia";
-            alumno.Materias[1].Nombre = "Matematicas";
-            alumno.Materias[0].Identificador = "HT96465";
-
-            alumno.Materias.Add(new Materia());
-            alumno.Materias[2].Nombre = "Español";
-            alumno.Materias[2].Identificador = "ES852";
-
-            alumno.Materias.RemoveAt(1);
-            alumno.Materias.RemoveAt(1);
-            alumno.Materias.Clear();
-
-            Console.WriteLine("Alumno: " + alumno.Nombre);
-            Console.WriteLine("Numero de materias: " + alumno.Materias.Count);
-
-            foreach (Materia materia in alumno.Materias)
+            foreach (Alumno elemento in Alumnos)
             {
-                Console.WriteLine("Materia: " + materia.Nombre);
+                Console.WriteLine("Nombre: " + elemento.Nombre);
+                foreach (Materia materia in elemento.Materias) {
+                    Console.WriteLine("Materia: " + materia.Nombre);
                 //alumno.Materias[i].Nombre;
+                }
             }
-
 
             Console.ReadLine();
         }
